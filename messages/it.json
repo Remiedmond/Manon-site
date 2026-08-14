@@ -1,0 +1,57 @@
+{
+    "Navbar": {
+        "barreau": "Avvocato presso l'Ordine degli Avvocati di ARRAS",
+        "home": "Home",
+        "cabinet": "Lo Studio",
+        "domaines": "Aree di Attività",
+        "fees": "Onorari",
+        "contact": "Contatto",
+        "appointment": "Prenota un Appuntamento"
+    },  
+  "Navigation": {
+    "home": "Home",
+    "cabinet": "Lo Studio",
+    "domaines": "Aree di Attività",
+    "contact": "Contatto"
+  },
+    "LeCabinet": {
+        "title": "Lo Studio",
+        "eyebrow": "Scopri lo studio dell'Avvocato Fontaine",
+        "description": "Uno studio legale specializzato nei settori del diritto civile e penale."
+    },
+  "DomainesPage": {
+    "title": "Aree di attività",
+    "eyebrow": "Scopri tutte le aree di intervento dell'Avvocato Fontaine",
+    "description": "Un'competenza legale completa per rispondere alle vostre esigenze."
+  },
+    "lesHonoraires": {
+        "title": "Onorari",
+        "eyebrow": "Scopri gli onorari dell'Avvocato Fontaine",
+        "description": "Massima trasparenza sugli onorari per una relazione di fiducia."
+    },
+    "Contact": {
+        "title": "Contatto",
+        "eyebrow": "Mettiti in contatto con l'Avvocato Fontaine",
+        "description": "Per qualsiasi domanda o per fissare un appuntamento, non esitare a contattarci."
+    },
+  "MobileCall": {
+    "call": "Chiamare"
+  },
+    "Footer": {
+        "Onfo": "Avvocato presso l'Ordine degli Avvocati di ARRAS specializzato in diritto di famiglia, diritto del lavoro e diritto dei contratti",
+        "Navigation": "Navigazione",
+        "home": "Home",
+        "cabinet": "Lo Studio",
+        "domaines": "Aree di Attività",
+        "fees": "Onorari",
+        "contact": "Contatto",
+        "domainesinfo": "Aree di Attività",
+        "contact2": "Contatto",
+        "adresse": "49 Rue Frédéric Degeorge, 62000 Arras France",
+        "phone": "+33 1 23 45 67 89",
+        "email": "contact@manonfontaine-avocate.fr",
+        "mentionslegales": "Informazioni Legali",
+        "politiqueconfidentialite": "Politica sulla Privacy",
+        "toutdroitsreserves": "Tutti i diritti riservati"
+    }
+}

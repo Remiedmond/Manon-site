@@ -1,11 +1,15 @@
 "use client"; 
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image'; 
+import LanguageSwitcher from './LanguageSwitcher';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
+
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const t = useTranslations('Navbar');
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -13,7 +17,7 @@ export default function Navbar() {
         <div className="flex justify-between h-20">
           
           {/* Logo / Nom */}
-          <div className="flex-shrink-0 flex items-center">
+          <div className="flex-shrink-0 flex items-center gap-3">
             <Link href="/" className="flex flex-row items-center gap-3">
              <Image 
                 src="/logo_manon.svg" 
@@ -23,36 +27,40 @@ export default function Navbar() {
                 className="h-12 w-auto" 
                
               />
+            </Link>
               <div className="flex flex-col leading-tight">
+                 <Link href="/" className="flex flex-col leading-tight">
               <span className="text-l md:text-xl font-serif font-semibold text-slate-900 tracking-tight">
                 Maître Manon FONTAINE
               </span>
               <span className="text-xs md:text-s tracking-widest text-lawyer-green">
-                Avocate au Barreau d'ARRAS
+                {t('barreau')}
               </span>
-              </div>
             </Link>
+              <LanguageSwitcher />
+              </div>
+           
           </div>
 
           {/* Liens Desktop (cachés sur mobile) */}
           <div className="hidden md:flex items-center space-x-8">
             <Link href="/" className="text-slate-600 hover:text-slate-900 transition font-medium">
-              Accueil
+              {t('home')}
             </Link>
             <Link href="/cabinet" className="text-slate-600 hover:text-slate-900 transition font-medium">
-              Le Cabinet
+              {t('cabinet')}
             </Link>
              <Link href="/domaines-d-intervention" className="text-slate-600 hover:text-slate-900 transition font-medium">
-              Domaines d'intervention
+              {t('domaines')}
             </Link>
             <Link href="/honoraires" className="text-slate-600 hover:text-slate-900 transition font-medium">
-              Honoraires
+              {t('fees')}
             </Link>
             <Link 
               href="/contact" 
               className="bg-lawyer-green text-white px-5 py-2.5 rounded-sm hover:bg-lawyer-green-dark transition font-medium shadow-sm"
             >
-              Contact
+              {t('contact')}
             </Link>
           </div>
 
@@ -72,15 +80,16 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+        
       </div>
 
       {isOpen && (
         <div className="md:hidden bg-white border-b border-gray-100 animate-in slide-in-from-top duration-300">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/domaines-d-intervention" className="block px-3 py-2 text-slate-600 font-medium">Domaines d'intervention</Link>
-            <Link href="/cabinet" className="block px-3 py-2 text-slate-600 font-medium">Le Cabinet</Link>
-            <Link href="/honoraires" className="block px-3 py-2 text-slate-600 font-medium">Honoraires</Link>
-            <Link href="/contact" className="block px-3 py-2 text-slate-900 font-bold text-blue-700">Prendre RDV</Link>
+            <Link href="/cabinet" className="block px-3 py-2 text-slate-600 font-medium">{t('cabinet')}</Link>
+            <Link href="/domaines-d-intervention" className="block px-3 py-2 text-slate-600 font-medium">{t('domaines')}</Link>
+            <Link href="/honoraires" className="block px-3 py-2 text-slate-600 font-medium">{t('honoraires')}</Link>
+            <Link href="/contact" className="block px-3 py-2 text-lawyer-green font-bold text-lg">{t('contact')}</Link>
           </div>
         </div>
       )}

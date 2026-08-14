@@ -8,6 +8,9 @@ import Aidejuridi from '@/app/components/Aidejuridi'
 import Rdv from '@/app/components/Rdv'
 import Convention from '@/app/components/Convention'
 import Asavoir from '@/app/components/Asavoir'
+import { getTranslations } from 'next-intl/server';
+import { getHonorairesData } from './data';
+
 
 // 1. Un SEO unique pour cette page spécifique
 export const metadata: Metadata = {
@@ -15,14 +18,20 @@ export const metadata: Metadata = {
   description: 'Découvrez les honoraires de Maître Manon Fontaine, avec les meilleurs tarifs adaptés à vos besoins.',
 }
 
-export default function CabinetPage() {
+export default async function HonorairesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations('lesHonoraires');
   return (
     <main className="bg-white">
-            <PageHero
-                eyebrow="Découvrez les honoraires de Maître Fontaine"
-                title="Honoraires et informations pratiques"
-                description="Transparence, clarté et accessibilité dans la tarification de mes prestations"
-            />
+        <PageHero
+            eyebrow={t('eyebrow')}
+            title={t('title')}
+            description={t('description')}
+        />
 
             <Article /> 
             <Facturation />

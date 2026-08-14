@@ -1,0 +1,61 @@
+
+
+
+
+{
+  "Navbar": {
+    "barreau": "Attorney at the ARRAS Bar",
+    "home": "Home",
+    "cabinet": "The Firm",
+    "domaines": "Practice Areas",
+    "fees": "Fees",
+    "contact": "Contact",
+    "appointment": "Book a Consultation"
+  },
+  "Navigation": {
+    "home": "Home",
+    "cabinet": "The Firm",
+    "domaines": "Practice Areas",
+    "contact": "Contact"
+  },
+  "LeCabinet": {
+    "title": "The Firm",
+    "eyebrow": "Discover Attorney Fontaine's firm",
+    "description": "A law firm specializing in civil and criminal law."
+  },
+  "DomainesPage": {
+    "title": "Practice Areas",
+    "eyebrow": "Discover all practice areas of Attorney Fontaine",
+    "description": "Comprehensive legal expertise tailored to your needs."
+  },
+  "lesHonoraires": {
+    "title": "Fees",
+    "eyebrow": "Discover Attorney Fontaine's fees",
+    "description": "Complete transparency on fees for a trusting relationship."
+  },
+  "Contact": {
+    "title": "Contact",
+    "eyebrow": "Get in touch with Attorney Fontaine",
+    "description": "For any questions or to schedule an appointment, feel free to contact us."
+  },
+  "MobileCall": {
+    "call": "Call us"
+  },
+  "Footer": {
+    "Onfo": "Attorney at the ARRAS Bar specializing in family law, labor law, and contract law",
+    "Navigation": "Navigation",
+    "home": "Home",
+    "cabinet": "The Firm",
+    "domaines": "Practice Areas",
+    "fees": "Fees",
+    "contact": "Contact",
+    "domainesinfo": "Practice Areas",
+    "contact2": "Contact",
+    "adresse": "49 Rue Frédéric Degeorge, 62000 Arras France",
+    "phone": "+33 1 23 45 67 89",
+    "email": "contact@manonfontaine-avocate.fr",
+    "mentionslegales": "Legal Notice",
+    "politiqueconfidentialite": "Privacy Policy",
+    "toutdroitsreserves": "All rights reserved"
+  }
+}

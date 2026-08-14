@@ -1,0 +1,57 @@
+{
+  "Navbar": {
+    "barreau": "Avocate au Barreau d'ARRAS",
+    "home": "Accueil",
+    "cabinet": "Le Cabinet",
+    "domaines": "Domaines d'intervention",
+    "fees": "Honoraires",
+    "contact": "Contact",
+    "appointment": "Prendre RDV"
+  },
+  "Navigation": {
+    "home": "Accueil",
+    "cabinet": "Le Cabinet",
+    "domaines": "Domaines d'intervention",
+    "contact": "Contact"
+  },
+  "LeCabinet": {
+    "title": "Le Cabinet",
+    "eyebrow": "Découvrez le cabinet de Maître Fontaine",
+    "description": "Un cabinet d'avocats spécialisé dans les domaines du droit civil et pénal."
+  },
+  "DomainesPage": {
+    "title": "Les domaines d'intervention",
+    "eyebrow": "Découvrez tous les domaines d'intervention de Maître Fontaine",
+    "description": "Une expertise complète pour répondre à vos besoins juridiques."
+  },
+  "lesHonoraires": {
+    "title": "Honoraires",
+    "eyebrow": "Découvrez les honoraires de Maître Fontaine",
+    "description": "Une transparence totale sur les honoraires pour une relation de confiance."
+  },
+  "Contact": {
+    "title": "Contact",
+    "eyebrow": "Prenez contact avec Maître Fontaine",
+    "description": "Pour toute question ou prise de rendez-vous, n'hésitez pas à nous contacter."
+  },
+  "MobileCall": {
+    "call": "Appeler"
+  },
+  "Footer": {
+    "Onfo": "Avocate au Barreau d'ARRAS spécialisée en droit de la famille, droit du travail et droit des contrats",
+    "Navigation": "Navigation",
+    "home": "Accueil",
+    "cabinet": "Le Cabinet",
+    "domaines": "Domaines d'intervention",
+    "fees": "Honoraires",
+    "contact": "Contact",
+    "domainesinfo": "Domaines d'intervention",
+    "contact2": "Contact",
+    "adresse": "49 Rue Frédéric Degeorge, 62000 Arras",
+    "phone": "03 21 71 00 00",
+    "email": "contact@manonfontaine-avocate.fr",
+    "mentionslegales": "Mentions légales",
+    "politiqueconfidentialite": "Politique de confidentialité",
+    "toutdroitsreserves": "Tous droits réservés"
+  }
+}

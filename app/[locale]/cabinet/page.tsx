@@ -5,6 +5,7 @@ import Parcourspro from "@/app/components/Parcourspro";
 import Appel from '@/app/components/Appel'
 import Vision from '@/app/components/Vision'
 import Rappel from '@/app/components/Rappel'
+import { getTranslations } from 'next-intl/server';
 
 // 1. Un SEO unique pour cette page spécifique
 export const metadata: Metadata = {
@@ -12,13 +13,19 @@ export const metadata: Metadata = {
   description: 'Découvrez le parcours de Maître Manon Fontaine, avocate installée au cœur d’Arras. Une approche humaine et transparente pour la défense de vos droits.',
 }
 
-export default function CabinetPage() {
+export default async function CabinetPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations('LeCabinet');
   return (
     <main className="bg-white">
         <PageHero
-            eyebrow="Découvrez l'histoire"
-            title="Le Cabinet"
-            description="Un accompagnement juridique de qualité, ancré dans le tissu local arrageois depuis 2025"
+            eyebrow={t('eyebrow')}
+            title={t('title')}
+            description={t('description')}
         />
       
 
@@ -33,3 +40,4 @@ export default function CabinetPage() {
     </main>
   )
 }
+

@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 
 type AccordionSectionProps = {
   title: string;
@@ -49,6 +50,8 @@ function AccordionSection({ title, children }: AccordionSectionProps) {
 }
 
 export default function Footer() {
+  
+  const t = useTranslations('Footer');
   return (
     <footer aria-label="Pied de page" className="bg-lawyer-black py-10">
 
@@ -66,8 +69,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="font-sans text-sm text-white/80 leading-relaxed">
-              Avocate au Barreau d'ARRAS spécialisée en droit de la famille,
-              droit du travail et droit des contrats
+             {t('Onfo')}
             </p>
             <Link
               href="https://www.linkedin.com/in/manon-fontaine-avocate/"
@@ -84,11 +86,11 @@ export default function Footer() {
           <nav className="w-[18%] flex flex-col gap-2" aria-label="Navigation secondaire">
             <span className="font-serif font-semibold text-lawyer-gold tracking-tight text-lg mb-1">Navigation</span>
             {[
-              { href: '/', label: 'Accueil' },
-              { href: '/le-cabinet', label: 'Le cabinet' },
-              { href: '/domaines-d-intervention', label: "Domaines d'intervention" },
-              { href: '/honoraires', label: 'Honoraires' },
-              { href: '/contact', label: 'Contact' },
+              { href: '/', label: t('home') },
+              { href: '/cabinet', label: t('cabinet') },
+              { href: '/domaines-d-intervention', label: t('domaines') },
+              { href: '/honoraires', label: t('fees') },
+              { href: '/contact', label: t('contact') },
             ].map(({ href, label }) => (
               <Link key={href} href={href} className="text-white/80 hover:text-white text-sm transition-colors duration-200">{label}</Link>
             ))}
@@ -96,7 +98,7 @@ export default function Footer() {
 
           {/* Domaines */}
           <nav className="w-[22%] flex flex-col gap-2" aria-label="Domaines d'intervention">
-            <span className="font-serif font-semibold text-lawyer-gold tracking-tight text-lg mb-1">Domaines d'intervention</span>
+            <span className="font-serif font-semibold text-lawyer-gold tracking-tight text-lg mb-1">{t('domainesinfo')}</span>
             {[
               { href: '/droit-de-la-famille', label: 'Droit de la famille' },
               { href: '/droit-du-travail', label: 'Droit du travail' },
@@ -108,19 +110,19 @@ export default function Footer() {
 
           {/* Contact */}
           <address className="w-[25%] flex flex-col gap-3 not-italic">
-            <span className="font-serif font-semibold text-lawyer-gold tracking-tight text-lg">Contact</span>
+            <span className="font-serif font-semibold text-lawyer-gold tracking-tight text-lg">{t('contact2')}</span>
             <div className="flex gap-3 items-start">
               <Image src="/loc.svg" alt="" aria-hidden="true" width={16} height={16} className="h-5 w-5 mt-0.5 shrink-0" />
-              <span className="text-white/80 text-sm leading-snug">49 Rue Frédéric Degeorge, 62000 Arras</span>
+              <span className="text-white/80 text-sm leading-snug">{t('adresse')}</span>
             </div>
             <div className="flex gap-3 items-center">
               <Image src="/telephone.svg" alt="" aria-hidden="true" width={14} height={14} className="h-5 w-5 shrink-0" />
-              <a href="tel:+33123456789" className="text-white/80 text-sm hover:text-white transition-colors duration-200">01 23 45 67 89</a>
+              <a href="tel:+33123456789" className="text-white/80 text-sm hover:text-white transition-colors duration-200">{t('phone')}</a>
             </div>
             <div className="flex gap-3 items-center">
               <Image src="/mail.svg" alt="" aria-hidden="true" width={16} height={16} className="h-5 w-5 shrink-0" />
               <a href="mailto:contact@manonfontaine-avocate.fr" className="text-white/80 text-sm hover:text-white transition-colors duration-200 break-all">
-                contact@manonfontaine-avocate.fr
+                {t('email')}
               </a>
             </div>
           </address>
@@ -139,18 +141,17 @@ export default function Footer() {
 
           {/* Description */}
           <p className="text-center text-xs text-white/70 leading-relaxed mb-6 px-2">
-            Avocate au Barreau d'ARRAS spécialisée en droit de la famille,
-            droit du travail et droit des contrats
+            {t('Onfo')}
           </p>
 
           {/* Accordion : Navigation */}
           <AccordionSection title="Navigation">
             {[
-              { href: '/', label: 'Accueil' },
-              { href: '/le-cabinet', label: 'Le cabinet' },
-              { href: '/domaines-d-intervention', label: "Domaines d'intervention" },
-              { href: '/honoraires', label: 'Honoraires' },
-              { href: '/contact', label: 'Contact' },
+              { href: '/', label: t('home') },
+              { href: '/le-cabinet', label: t('cabinet') },
+              { href: '/domaines-d-intervention', label: t('domaines') },
+              { href: '/honoraires', label: t('fees') },
+              { href: '/contact', label: t('contact') },
             ].map(({ href, label }) => (
               <Link key={href} href={href} className="text-white/80 hover:text-white text-sm transition-colors duration-200">
                 {label}
@@ -159,7 +160,7 @@ export default function Footer() {
           </AccordionSection>
 
           {/* Accordion : Domaines */}
-          <AccordionSection title="Domaines d'intervention">
+          <AccordionSection title={t('domainesinfo')}>
             {[
               { href: '/droit-de-la-famille', label: 'Droit de la famille' },
               { href: '/droit-du-travail', label: 'Droit du travail' },
@@ -172,19 +173,19 @@ export default function Footer() {
           </AccordionSection>
 
           {/* Accordion : Contact */}
-          <AccordionSection title="Contact">
+          <AccordionSection title={t('contact2')}>
             <div className="flex gap-3 items-start">
               <Image src="/loc.svg" alt="" aria-hidden="true" width={16} height={16} className="h-5 w-5 mt-0.5 shrink-0" />
-              <span className="text-white/80 text-sm leading-snug">49 Rue Frédéric Degeorge, 62000 Arras</span>
+              <span className="text-white/80 text-sm leading-snug">{t('adresse')}</span>
             </div>
             <div className="flex gap-3 items-center">
               <Image src="/telephone.svg" alt="" aria-hidden="true" width={14} height={14} className="h-5 w-5 shrink-0" />
-              <a href="tel:+33123456789" className="text-white/80 text-sm hover:text-white transition-colors duration-200">01 23 45 67 89</a>
+              <a href="tel:+33123456789" className="text-white/80 text-sm hover:text-white transition-colors duration-200">{t('phone')}</a>
             </div>
             <div className="flex gap-3 items-center">
               <Image src="/mail.svg" alt="" aria-hidden="true" width={16} height={16} className="h-5 w-5 shrink-0" />
               <a href="mailto:contact@manonfontaine-avocate.fr" className="text-white/80 text-sm hover:text-white transition-colors duration-200 break-all">
-                contact@manonfontaine-avocate.fr
+                {t('email')}
               </a>
             </div>
           </AccordionSection>
@@ -207,14 +208,14 @@ export default function Footer() {
         {/* Bas de page */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-3 md:gap-0 text-center md:text-left">
           <p className="text-xs text-white/40">
-            &copy; {new Date().getFullYear()} Maître Manon FONTAINE. Tous droits réservés.
+            &copy; {new Date().getFullYear()} Maître Manon FONTAINE. {t('toutdroitsreserves')}.
           </p>
           <div className="flex flex-wrap gap-4 md:gap-6 justify-center md:justify-end">
             <Link href="/mentions-legales" className="text-xs text-white/40 hover:text-white/70 transition-colors duration-200">
-              Mentions légales
+              {t('mentionslegales')}
             </Link>
             <Link href="/politique-de-confidentialite" className="text-xs text-white/40 hover:text-white/70 transition-colors duration-200">
-              Politique de confidentialité
+              {t('politiqueconfidentialite')}
             </Link>
           </div>
         </div>

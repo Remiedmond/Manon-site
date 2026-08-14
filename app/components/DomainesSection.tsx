@@ -2,7 +2,8 @@
 
 import Image from 'next/image';
 import { motion, Variants } from 'framer-motion';
-import { PracticeAreasData } from '../domaines-d-intervention/data';
+import { getPracticeAreasData } from '../[locale]/domaines-d-intervention/data';
+import { useLocale } from 'next-intl';
 
 // Variantes d'animation
 const cardVariants: Variants = {
@@ -38,10 +39,16 @@ const listItemVariants: Variants = {
 };
 
 export default function DomainesSection() {
+  // 1. Récupère la langue active ('fr' ou 'en')
+  const locale = useLocale();
+
+  // 2. Charge les données traduites
+  const practiceAreas = getPracticeAreasData(locale);
+  
   return (
     <section className=" bg-lawyer-gold overflow-hidden">
       <div className="md:max-w-[80%] py-8 mx-auto px-4 sm:px-6 space-y-20 md:space-y-28">
-        {PracticeAreasData.map((area, index) => {
+        {practiceAreas.map((area) => {
           const isImageLeft = area.layout === 'image-left';
 
           return (
@@ -123,7 +130,7 @@ export default function DomainesSection() {
                 >
                   <div>
                     <h3 className="text-xl font-serif font-semibold text-lawyer-green mb-4">
-                      Prestations proposées
+                      {area.prestationsproposees}
                     </h3>
                     
                     {/* Liste animée élément par élément */}
@@ -154,7 +161,7 @@ export default function DomainesSection() {
                     className="p-6 bg-white/90 border-l-4 border-lawyer-green rounded-r-md shadow-sm mt-6 transition-shadow duration-300 hover:shadow-md"
                   >
                     <h4 className="text-lg font-serif font-semibold text-lawyer-green mb-2">
-                      Mon approche
+                      {area.monapproche}
                     </h4>
                     <p className="text-lawyer-green text-sm md:text-base leading-relaxed italic">
                       {area.approach}

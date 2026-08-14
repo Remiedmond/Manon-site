@@ -1,33 +1,40 @@
-"use client"; 
+"use client";
 
-import { useState } from 'react';
 import { motion } from "framer-motion";
-import Link from 'next/link';
-import Image from 'next/image'; 
+import { useLocale } from "next-intl";
+import { getFirstMeetingData } from "../[locale]/honoraires/data"; // Ajuste le chemin vers ton data.ts
 
 export default function Rdv() {
+  const locale = useLocale();
+  const data = getFirstMeetingData(locale);
+
   return (
-    <section className="bg-white text-lawyer-black py-12 md:py-24 ">
-      <div className="max-w-[85%] md:max-w-[45%] mx-auto flex flex-col md:flex-row items-center align-center md:justify-center text-left md:text-center gap-12">
-          <motion.div
-          initial={{ opacity: 0, x: +40 }}
-          whileInView={{ opacity: 1, x: 0 }}
+    <section className="bg-white text-lawyer-black py-12 md:py-24">
+      <div className="max-w-[85%] md:max-w-[50%] mx-auto flex flex-col items-center justify-center text-left md:text-center gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
+          className="space-y-4"
         >
-          <h2 className="text-lawyer-green-dark text-3xl md:text-4xl font-serif leading-tight mb-5">
-            Premier rendez-vous
+          <h2 className="text-lawyer-green-dark text-3xl md:text-4xl font-serif leading-tight">
+            {data.title}
           </h2>
-          <p className="font-sans max-w-l  text-s mt-5 md:mt-0  md:text-sm mb-10 md:mb-2 leading-relaxed">
-            Lors de notre première rencontre, je vous présenterai un devis détaillé adapté à votre situation. Ce
-            premier rendez-vous est facturé <strong className="font-blackx² text-lawyer-green"> 80 € TTC. </strong>
+
+          <p className="font-sans text-sm md:text-base leading-relaxed text-gray-700">
+            {data.textPart1}{" "}
+            <strong className="font-bold text-lawyer-green">
+              {data.priceHighlight}
+            </strong>
+            {data.textPart2}
           </p>
-          <p className="font-sans max-w-l text-s mt-5 md:mt-0  md:text-sm mb-10 md:mb-2 leading-relaxed">
-            Ce montant sera déduit de la provision d'honoraires si vous décidez de me confier votre dossier.
-          </p>  
-    
+
+          <p className="font-sans text-sm md:text-base leading-relaxed text-gray-600">
+            {data.deductionNote}
+          </p>
         </motion.div>
-      </div>   
+      </div>
     </section>
   );
 }

@@ -3,6 +3,8 @@ import Presentation from '@/app/components/Presentation'
 import Domaineint from '@/app/components/Doint'
 import Engagements from '@/app/components/Engagements'
 import Appel from '@/app/components/Appel'
+import { Metadata } from 'next'
+import Link from "next/link";
 
 // app/page.tsx
 export default function Home() {
@@ -38,13 +40,13 @@ export default function Home() {
       </p>
 
       <div className="flex flex-wrap gap-5">
-        <button className="align-center bg-lawyer-gold hover:brightness-110 text-white px-8 py-4 rounded-sm font-bold transition shadow-lg">
+        <Link href="/contact" className="align-center bg-lawyer-gold hover:brightness-110 text-white px-8 py-4 rounded-sm font-bold transition shadow-lg">
           Prendre contact 
-        </button>
+        </Link>
         
-        <button className="border border-lawyer-beige text-lawyer-beige hover:bg-white/5 px-8 py-4 rounded-sm font-bold transition">
+        <Link href="/cabinet" className="border border-lawyer-beige text-lawyer-beige hover:bg-white/5 px-8 py-4 rounded-sm font-bold transition">
           Le Cabinet 
-        </button>
+        </Link>
       </div>
     </div>
 

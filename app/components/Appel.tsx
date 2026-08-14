@@ -4,8 +4,13 @@ import { useState } from 'react';
 import { motion } from "framer-motion";
 import Link from 'next/link';
 import Image from 'next/image'; 
+import { getTranslations } from 'next-intl/server';
+import { useLocale, useTranslations } from 'use-intl';
 
 export default function Appel() {
+  const locale = useLocale();
+  
+    const testet = useTranslations('Footer');
   return (
     <section className="bg-lawyer-green text-white py-12 md:py-24 ">
       <div className="max-w-[85%] md:max-w-[55%] mx-auto flex flex-col md:flex-row items-center align-center md:justify-center text-left md:text-center gap-12">
@@ -23,18 +28,18 @@ export default function Appel() {
            d'Arras pour analyser votre situation et vous proposer les solutions adaptées.
           </p>  
           <div className="flex flex-wrap flex-row justify-start md:justify-center md:mt-10 gap-0 md:gap-5">
-            <div className="w-[54%] md:w-auto ">
+            <Link href="/contact" className="w-[54%] md:w-auto ">
                 <motion.button className=" align-center text-xs md:text-base bg-lawyer-gold  border border-lawyer-gold hover:brightness-110 text-white px-8 py-4 rounded-sm font-bold transition shadow-lg"  whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}>
                 Prendre contact
                 </motion.button>
-            </div>
-            <div className="w-[45%] md:w-auto ">
+            </Link>
+            <Link href={`tel:${testet('phone')}`} className="w-[45%] md:w-auto ">
                 <motion.div className="w-full text-center align-center text-xs md:text-base bg-lawyer-green border border-white hover:brightness-110 text-white px-8 py-4 rounded-sm font-bold transition shadow-lg"  whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.97 }}>
-                03 21 21 21 21 
+               {testet('phone')}
                 </motion.div>
-            </div>
+            </Link>
           </div>
         </motion.div>
       </div>
