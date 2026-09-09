@@ -1,9 +1,10 @@
-"use client";
+"use client"; 
 
+import { useState } from 'react';
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { useLocale } from "next-intl";
-import { Link } from "@/i18n/routing";
+import Link from 'next/link';
+import Image from 'next/image'; 
+import { useLocale, useTranslations } from 'next-intl';
 import { getPresentationData } from "../[locale]/dato";
 
 export default function Presentation() {
@@ -11,20 +12,18 @@ export default function Presentation() {
   const data = getPresentationData(locale);
 
   return (
-    <section className="bg-lawyer-white text-lawyer-black py-12 md:py-24">
-      <div className="max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-12">
-        {/* Texte et appel à l'action */}
-        <motion.div
+    <section className="bg-lawyer-white text-white py-12 md:py-24 ">
+      <div className="max-w-[85%] md:max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-12">
+          <motion.div
           className="mx-auto md:w-3/5 text-left"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl md:text-4xl font-serif text-lawyer-black leading-tight mb-6">
+          <h2 className="text-3xl md:text-4xl font-serif text-lawyer-black leading-tight mb-5">
             {data.title}
           </h2>
-
           <div className="space-y-3 mb-8">
             {data.paragraphs.map((paragraph, index) => (
               <p
@@ -49,42 +48,30 @@ export default function Presentation() {
           </div>
         </motion.div>
 
-        {/* Conteneur image avec les éléments décoratifs */}
-        <motion.div
+        {/* Conteneur image avec le carré décoratif */}
+         <motion.div
           className="relative md:w-2/5 w-full mt-10 md:mt-0"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.7, ease: "easeOut", delay: 0.2 }}
           viewport={{ once: true }}
         >
-          <div className="relative w-full aspect-[4/5] max-w-md mx-auto">
-            <Image
-              src={data.imageSrc}
-              alt={data.imageAlt}
-              fill
-              className="object-cover rounded-md shadow-md"
-              sizes="(max-width: 768px) 100vw, 40vw"
-              priority
-            />
-          </div>
-
-          {/* Carré décoratif inférieur gauche */}
-          <motion.div
-            className="absolute -bottom-4 -left-4 w-12 md:w-16 h-12 md:h-16 bg-lawyer-gold z-10 opacity-60 rounded-sm"
-            initial={{ opacity: 0, scale: 0.5 }}
-            whileInView={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
+          <Image 
+            src={data.imageSrc}
+            alt={data.imageAlt}
+            width={200}   
+            height={200} 
+            className="h-full w-full object-cover rounded-l shadow-md" 
           />
-
-          {/* Carré décoratif supérieur droit (mobile) */}
-          <motion.div
-            className="md:hidden absolute -top-4 -right-4 w-10 h-10 bg-lawyer-gold z-10 opacity-60 rounded-sm"
-            initial={{ opacity: 0, scale: 0.5 }}
+          <motion.div className="absolute -bottom-4 -left-4 w-12 md:w-16 h-12 md:h-16 bg-lawyer-gold z-[+1] opacity-60"  initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 0.6, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-          />
+            transition={{ duration: 0.5, delay: 0.6 }}
+            viewport={{ once: true }}/>
+            
+           <motion.div className=" md:hidden absolute -top-4 -right-4 w-10 h-10 bg-lawyer-gold z-[+1] opacity-60"  initial={{ opacity: 0, scale: 0.5 }}
+            whileInView={{ opacity: 0.6, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            viewport={{ once: true }} />
         </motion.div>
       </div>
     </section>

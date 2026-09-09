@@ -5,55 +5,82 @@ import Engagements from '@/app/components/Engagements'
 import Appel from '@/app/components/Appel'
 import { Metadata } from 'next'
 import Link from "next/link";
+import {getHomeHeroData} from "../[locale]/dato";
 
 // app/page.tsx
-export default function Home() {
+
+// 1. Metadata SEO dynamiques pour la page d'accueil
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const data = getHomeHeroData(locale);
+
+  return {
+    title: `${data.title} | Maître Manon Fontaine - Avocat`,
+    description: data.description,
+  };
+}
+
+// 2. Page d'accueil
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const heroData = getHomeHeroData(locale);
+
   return (
-    <main>
+    <main className="bg-white">
+      {/* ── Section Hero ── */}
+      <section className="relative text-white py-24 md:py-32 overflow-hidden">
+        {/* Image de fond */}
+        <Image
+          src={heroData.bgImageSrc}
+          alt={heroData.bgImageAlt}
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+        />
 
-<section className="relative text-white py-24 overflow-hidden">
+        {/* Dégradé vert : plein à gauche, transparent à droite */}
+        <div className="absolute inset-0 bg-gradient-to-r from-lawyer-green from-40% via-lawyer-green/90 to-lawyer-green/60" />
 
-  {/* Image de fond */}
-  <Image
-    src="/cabinet3.png"
-    alt="Cabinet d'avocat Maître Fontaine"
-    fill
-    priority
-    className="object-cover"
-    
-  />
+        {/* Contenu au-dessus */}
+        <div className="relative z-10 max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-12">
+          <div className="mx-auto md:w-4/5 text-center md:text-left">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif leading-tight mb-8">
+              {heroData.title}
+            </h1>
 
-  {/* Dégradé vert : plein à gauche, transparent à droite */}
-  <div className="absolute inset-0 bg-gradient-to-r from-lawyer-green from-40% via-lawyer-green/90 to-lawyer-green/60" />
+            <p className="font-sans max-w-2xl text-lawyer-beige text-base sm:text-lg md:text-xl mb-10 leading-relaxed mx-auto md:mx-0">
+              {heroData.description}
+            </p>
 
-  {/* Contenu au-dessus */}
-  <div className="relative z-10 max-w-[85%] md:max-w-[85%] mx-auto flex flex-col md:flex-row items-center gap-12">
-    
-    <div className="mx-auto md:w-4/5 text-center md:text-left">
-      <h1 className="text-3xl md:text-7xl font-serif leading-tight mb-8">
-        Un accompagnement juridique sur mesure à Arras 
-      </h1>
-      
-      <p className="font-sans max-w-2xl text-lawyer-beige text-lg md:text-xl mb-10 leading-relaxed">
-        Maître Manon Fontaine vous conseille et vous défend avec clarté, 
-        confidentialité et réactivité au cœur du tissu local arrageois.
-      </p>
+            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-5">
+              <Link
+                href={heroData.contactBtnHref}
+                className="bg-lawyer-gold hover:brightness-110 text-white px-8 py-4 rounded-sm font-semibold transition shadow-lg text-sm sm:text-base"
+              >
+                {heroData.contactBtnText}
+              </Link>
 
-      <div className="flex flex-wrap gap-5">
-        <Link href="/contact" className="align-center bg-lawyer-gold hover:brightness-110 text-white px-8 py-4 rounded-sm font-bold transition shadow-lg">
-          Prendre contact 
-        </Link>
-        
-        <Link href="/cabinet" className="border border-lawyer-beige text-lawyer-beige hover:bg-white/5 px-8 py-4 rounded-sm font-bold transition">
-          Le Cabinet 
-        </Link>
-      </div>
-    </div>
+              <Link
+                href={heroData.cabinetBtnHref}
+                className="border border-lawyer-beige text-lawyer-beige hover:bg-white/10 px-8 py-4 rounded-sm font-semibold transition text-sm sm:text-base"
+              >
+                {heroData.cabinetBtnText}
+              </Link>
+            </div>
+          </div>
 
-    <div className="md:w-2/5 hidden md:block" />
-
-  </div>
-</section>
+          <div className="md:w-2/5 hidden md:block" />
+        </div>
+      </section>
       <Presentation />
       <Domaineint />
       <Engagements /> 

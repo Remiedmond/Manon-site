@@ -3,35 +3,9 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useInView, type Variants } from "framer-motion";
 import Image from "next/image";
+import { useLocale } from "next-intl";
+import { getEngagementsData, type EngagementItem } from "../[locale]/dato"; // Ajuste le chemin vers ton data.ts
 
-const engagements = [
-  {
-    title: "Écoute",
-    icon: "/ecoute.svg",
-    description:
-      "Chaque situation est unique. Je prends le temps de comprendre votre contexte pour vous apporter une réponse adaptée.",
-  },
-  {
-    title: "Clarté",
-    icon: "/clarte.svg",
-    description:
-      "Le droit doit être accessible. Je m'engage à vous expliquer clairement vos options et les démarches à suivre.",
-  },
-  {
-    title: "Confidentialité",
-    icon: "/confidentialite.svg",
-    description:
-      "Vos informations sont protégées par le secret professionnel. Vous pouvez vous confier en toute sécurité.",
-  },
-  {
-    title: "Réactivité",
-    icon: "/reactivite.svg",
-    description:
-      "Votre temps est précieux. Je m'engage à vous répondre rapidement et à respecter les délais fixés.",
-  },
-];
-
-// Variants pour le conteneur parent (stagger des enfants)
 const containerVariants: Variants = {
   hidden: {},
   visible: {
@@ -42,7 +16,6 @@ const containerVariants: Variants = {
   },
 };
 
-// Variants pour chaque carte
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 40 },
   visible: {
@@ -50,12 +23,11 @@ const cardVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
-// Variants pour le header
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
   visible: {
@@ -63,20 +35,12 @@ const headerVariants: Variants = {
     y: 0,
     transition: {
       duration: 0.7,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
 
-function EngagementCard({
-  title,
-  icon,
-  description,
-}: {
-  title: string;
-  icon: string;
-  description: string;
-}) {
+function EngagementCard({ title, icon, description }: EngagementItem) {
   return (
     <motion.div
       variants={cardVariants}
@@ -107,21 +71,26 @@ function EngagementCard({
 }
 
 interface EngagementsProps {
-  isSidebarOpen: boolean;
+  isSidebarOpen?: boolean;
 }
 
-export default function Engagements({ isSidebarOpen }: EngagementsProps) {
+export default function Engagements({ isSidebarOpen = false }: EngagementsProps) {
+  const locale = useLocale();
+  const data = getEngagementsData(locale);
+
   const sectionRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: false, amount: 0.2 });
   const [animationKey, setAnimationKey] = useState(0);
 
-  // ── Clip de l'image fixe aux bornes de la section ──
+  // Clip de l'image fixe aux dimensions de la section
   useEffect(() => {
     const updateClip = () => {
       if (!sectionRef.current || !bgRef.current) return;
       const { top, left, bottom, right } = sectionRef.current.getBoundingClientRect();
-      bgRef.current.style.clipPath = `inset(${Math.max(0, top)}px ${window.innerWidth - right}px ${window.innerHeight - Math.min(window.innerHeight, bottom)}px ${left}px)`;
+      bgRef.current.style.clipPath = `inset(${Math.max(0, top)}px ${
+        window.innerWidth - right
+      }px ${window.innerHeight - Math.min(window.innerHeight, bottom)}px ${left}px)`;
     };
 
     updateClip();
@@ -134,38 +103,38 @@ export default function Engagements({ isSidebarOpen }: EngagementsProps) {
     };
   }, []);
 
-  // ── Recalcul quand la sidebar toggle ──
+  // Recalcul quand la sidebar toggle
   useEffect(() => {
     const timer = setTimeout(() => {
       setAnimationKey((k) => k + 1);
       if (!sectionRef.current || !bgRef.current) return;
       const { top, left, bottom, right } = sectionRef.current.getBoundingClientRect();
-      bgRef.current.style.clipPath = `inset(${Math.max(0, top)}px ${window.innerWidth - right}px ${window.innerHeight - Math.min(window.innerHeight, bottom)}px ${left}px)`;
+      bgRef.current.style.clipPath = `inset(${Math.max(0, top)}px ${
+        window.innerWidth - right
+      }px ${window.innerHeight - Math.min(window.innerHeight, bottom)}px ${left}px)`;
     }, 320);
     return () => clearTimeout(timer);
   }, [isSidebarOpen]);
 
   return (
-    <section ref={sectionRef} className="relative bg-blanc py-20 px-6">
-
-      {/* ── Image fixe clippée aux dimensions de la section ── */}
+    <section ref={sectionRef} className="relative bg-white py-20 px-6">
+      {/* Image fixe clippée */}
       <div
         ref={bgRef}
         className="fixed inset-0 z-0 pointer-events-none"
         aria-hidden="true"
       >
         <Image
-          src="/test.jpg"
+          src={data.bgImageSrc}
           alt=""
           fill
-          className="object-cover opacity-[0.26]"
+          className="object-cover opacity-[0.56]"
           priority
         />
       </div>
 
-      {/* ── Contenu au-dessus ── */}
+      {/* Contenu */}
       <div className="relative z-10 max-w-6xl mx-auto">
-
         <motion.div
           key={`header-${animationKey}`}
           className="text-center mb-14"
@@ -174,10 +143,10 @@ export default function Engagements({ isSidebarOpen }: EngagementsProps) {
           variants={headerVariants}
         >
           <h2 className="text-2xl md:text-4xl font-serif text-lawyer-green leading-tight mb-3">
-            Mes engagements
+            {data.title}
           </h2>
           <p className="text-base md:text-lg font-sans text-lawyer-black/70">
-            Des valeurs au cœur de ma pratique professionnelle
+            {data.subtitle}
           </p>
         </motion.div>
 
@@ -188,7 +157,7 @@ export default function Engagements({ isSidebarOpen }: EngagementsProps) {
           animate={isInView ? "visible" : "hidden"}
           variants={containerVariants}
         >
-          {engagements.map((item) => (
+          {data.items.map((item) => (
             <EngagementCard key={item.title} {...item} />
           ))}
         </motion.div>

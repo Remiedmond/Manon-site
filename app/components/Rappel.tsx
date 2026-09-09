@@ -40,7 +40,7 @@ export default function Rappel() {
           viewport={{ once: true }}
         >
           <Image 
-            src="/cabinet.png" 
+            src="/beffroi.jpg" 
             alt="photo du cabinet d'avocat de Maître Manon FONTAINE situé au cœur d'Arras" 
             width={200}   
             height={200} 

@@ -119,8 +119,8 @@ export interface ConventionData {
 export const getConventionData = (locale: string = 'fr'): ConventionData => {
   if (locale === 'en') {
     return {
-      imageSrc: '/cabinet3.png',
-      imageAlt: 'Law firm office',
+      imageSrc: '/beffroi 2.jpg',
+      imageAlt: 'building of the law office',
       agreement: {
         title: 'Fee Agreement',
         intro: 'Prior to any work, we sign a formal fee agreement detailing:',
@@ -147,8 +147,8 @@ export const getConventionData = (locale: string = 'fr'): ConventionData => {
 
   if (locale === 'it') {
     return {
-      imageSrc: '/cabinet3.png',
-      imageAlt: 'Studio legale',
+      imageSrc: '/beffroi 2.jpg',
+      imageAlt: 'edificio dello studio legale',
       agreement: {
         title: 'Convenzione di Onorario',
         intro: 'Prima di qualsiasi intervento, firmiamo insieme una convenzione che specifica:',
@@ -175,8 +175,8 @@ export const getConventionData = (locale: string = 'fr'): ConventionData => {
 
   // Version Française par défaut
   return {
-    imageSrc: '/cabinet3.png',
-    imageAlt: 'Cabinet juridique Maître Fontaine',
+    imageSrc: '/beffroi 2.jpg',
+    imageAlt: 'Beffroi d\'Arras, pris en gros plan.',
     agreement: {
       title: "Convention d'honoraires",
       intro: "Avant toute intervention, nous signons ensemble une convention d'honoraires qui précise :",

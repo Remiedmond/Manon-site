@@ -166,3 +166,42 @@ export const getPrivacyPolicyData = (locale: string = 'fr'): LegalDocument => {
     ],
   };
 };
+
+
+export interface CtaData {
+  title: string;
+  description: string;
+  contactBtnText: string;
+  contactBtnHref: string;
+}
+
+export const getCtaData = (locale: string = 'fr'): CtaData => {
+  if (locale === 'en') {
+    return {
+      title: 'Need Legal Counsel?',
+      description:
+        'Schedule an appointment for an initial consultation. I will welcome you at my office in the heart of Arras to assess your legal matter and provide tailored solutions.',
+      contactBtnText: 'Get in touch',
+      contactBtnHref: '/contact',
+    };
+  }
+
+  if (locale === 'it') {
+    return {
+      title: 'Avete bisogno di una consulenza legale?',
+      description:
+        'Fissate un appuntamento per un primo colloquio. Vi riceverò nel mio studio nel centro di Arras per esaminare la vostra situazione e proporvi le soluzioni più adatte.',
+      contactBtnText: 'Contattami',
+      contactBtnHref: '/contact',
+    };
+  }
+
+  // Version Française par défaut
+  return {
+    title: "Besoin d'un conseil juridique ?",
+    description:
+      "Prenez rendez-vous pour un premier échange. Je vous recevrai dans mon cabinet situé au cœur d'Arras pour analyser votre situation et vous proposer les solutions adaptées.",
+    contactBtnText: 'Prendre contact',
+    contactBtnHref: '/contact',
+  };
+};

@@ -19,7 +19,7 @@ export default function Presentationcontact() {
           viewport={{ once: true }}
         >
           <Image 
-            src="/photomanon.png" 
+            src="/photomanon2.jpg" 
             alt="photo Maître Manon FONTAINE en robe d'avocate" 
             width={200}   
             height={200} 
