@@ -33,7 +33,7 @@ export default function Navbar() {
               <span className="text-l md:text-xl font-serif font-semibold text-slate-900 tracking-tight">
                 Maître Manon FONTAINE
               </span>
-              <span className="text-xs md:text-s tracking-widest text-lawyer-green">
+              <span className="text-xs md:text-s tracking-widest text-lawyer-green max-w-[200px] truncate">
                 {t('barreau')}
               </span>
             </Link>
@@ -88,7 +88,7 @@ export default function Navbar() {
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <Link href="/cabinet" className="block px-3 py-2 text-slate-600 font-medium">{t('cabinet')}</Link>
             <Link href="/domaines-d-intervention" className="block px-3 py-2 text-slate-600 font-medium">{t('domaines')}</Link>
-            <Link href="/honoraires" className="block px-3 py-2 text-slate-600 font-medium">{t('honoraires')}</Link>
+            <Link href="/honoraires" className="block px-3 py-2 text-slate-600 font-medium">{t('fees')}</Link>
             <Link href="/contact" className="block px-3 py-2 text-lawyer-green font-bold text-lg">{t('contact')}</Link>
           </div>
         </div>

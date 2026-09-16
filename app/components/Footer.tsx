@@ -53,7 +53,7 @@ export default function Footer() {
   
   const t = useTranslations('Footer');
   return (
-    <footer aria-label="Pied de page" className="bg-lawyer-black py-10">
+    <footer aria-label="Pied de page" className="bg-lawyer-black pt-10 pb-24 md:py-10">
 
       <div className="max-w-[85%] mx-auto">
 

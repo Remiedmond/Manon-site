@@ -72,7 +72,7 @@ export default function Parcourspro() {
         viewport={{ once: true }}
       >
         <h3 className="text-lg md:text-l font-serif mb-2 font-semibold">
-          Diplômée de l'Université d'Artois caca prout.
+          Diplômée de l'Université d'Artois.
         </h3>
         <p>Formation au barreau d'Arras.</p>
       </motion.div>
@@ -88,7 +88,7 @@ export default function Parcourspro() {
         viewport={{ once: true }}
       >
         <h3 className="text-lg md:text-l font-serif mb-2 font-semibold">
-          Diplômée de l'Université d'Artois caca prout.
+          Diplômée de l'Université d'Artois.
         </h3>
         <p>Formation au barreau d'Arras.</p>
       </motion.div>
@@ -123,7 +123,7 @@ export default function Parcourspro() {
         viewport={{ once: true }}
       >
         <h3 className="text-lg md:text-l font-serif mb-2 font-semibold">
-          Diplômée de l'Université d'Artois caca prout.
+          Diplômée de l'Université d'Artois.
         </h3>
         <p>Formation au barreau d'Arras.</p>
       </motion.div>
@@ -139,7 +139,7 @@ export default function Parcourspro() {
         viewport={{ once: true }}
       >
         <h3 className="text-lg md:text-l font-serif mb-2 font-semibold">
-          Diplômée de l'Université d'Artois caca prout.
+          Diplômée de l'Université d'Artois.
         </h3>
         <p>Formation au barreau d'Arras.</p>
       </motion.div>
