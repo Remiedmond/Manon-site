@@ -456,3 +456,163 @@ export const getAsavoirData = (locale: string = 'fr'): AsavoirData => {
     ],
   };
 };
+
+
+export interface GalleryPhoto {
+  src: string;
+  alt: string;
+  spanClass: string;
+  heightClass: string;
+}
+
+export interface HonorairesGalleryData {
+  photos: GalleryPhoto[];
+}
+
+export const getHonorairesGalleryData = (locale: string = 'fr'): HonorairesGalleryData => {
+  if (locale === 'en') {
+    return {
+      photos: [
+        {
+          src: '/codecivil.jpg',
+          alt: 'Close-up of the French Civil Code, symbolizing legal rigor and the rule of law.',
+          spanClass: 'md:col-span-2',
+          heightClass: 'h-72 md:h-[420px]',
+        },
+        {
+          src: '/deboutnef1.jpg',
+          alt: 'Attorney Manon Fontaine standing in the foreground of her office, illustrating commitment and availability.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-72 md:h-[420px]',
+        },
+        {
+          src: '/assisavecmac.jpg',
+          alt: 'Attorney Manon Fontaine seated at her desk with her laptop.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-80 md:h-[440px]',
+        },
+        {
+          src: '/deboutbrascroises.jpg',
+          alt: 'Attorney Manon Fontaine standing with crossed arms in her office, conveying trust and professionalism.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-80 md:h-[440px]',
+        },
+        {
+          src: '/deboutaveclecodecivil.jpg',
+          alt: 'Attorney Manon Fontaine standing with the Civil Code in hand, reflecting legal expertise and dedication.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-80 md:h-[440px]',
+        },
+        {
+          src: '/assiscodecivilouvert.jpg',
+          alt: 'Attorney Manon Fontaine seated, consulting an open Civil Code.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-64 md:h-[280px]',
+        },
+        {
+          src: '/assisauburreau.jpg',
+          alt: 'Attorney Manon Fontaine working on a client matter at her desk computer.',
+          spanClass: 'md:col-span-2',
+          heightClass: 'h-64 md:h-[280px]',
+        },
+      ],
+    };
+  }
+
+  if (locale === 'it') {
+    return {
+      photos: [
+        {
+          src: '/codecivil.jpg',
+          alt: 'Primo piano del Codice Civile francese, a simboleggiare il diritto e il rigore giuridico.',
+          spanClass: 'md:col-span-2',
+          heightClass: 'h-72 md:h-[420px]',
+        },
+        {
+          src: '/deboutnef1.jpg',
+          alt: 'Studio di lavoro con l\'Avvocato Manon Fontaine in primo piano, a rappresentare impegno e disponibilità.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-72 md:h-[420px]',
+        },
+        {
+          src: '/assisavecmac.jpg',
+          alt: 'L\'Avvocato Manon Fontaine seduta alla scrivania con il proprio computer.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-80 md:h-[440px]',
+        },
+        {
+          src: '/deboutbrascroises.jpg',
+          alt: 'L\'Avvocato Manon Fontaine in piedi a braccia conserte nel suo studio, espressione di fiducia e professionalità.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-80 md:h-[440px]',
+        },
+        {
+          src: '/deboutaveclecodecivil.jpg',
+          alt: 'L\'Avvocato Manon Fontaine in piedi con il Codice Civile in mano, a simboleggiare competenza e rigore.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-80 md:h-[440px]',
+        },
+        {
+          src: '/assiscodecivilouvert.jpg',
+          alt: 'L\'Avvocato Manon Fontaine seduta con il Codice Civile aperto.',
+          spanClass: 'md:col-span-1',
+          heightClass: 'h-64 md:h-[280px]',
+        },
+        {
+          src: '/assisauburreau.jpg',
+          alt: 'L\'Avvocato Manon Fontaine alla scrivania intenta ad analizzare una pratica al computer.',
+          spanClass: 'md:col-span-2',
+          heightClass: 'h-64 md:h-[280px]',
+        },
+      ],
+    };
+  }
+
+  // Version Française par défaut
+  return {
+    photos: [
+      {
+        src: '/codecivil.jpg',
+        alt: 'Image montrant le code civil en gros plan, symbolisant le droit et la rigueur juridique.',
+        spanClass: 'md:col-span-2',
+        heightClass: 'h-72 md:h-[420px]',
+      },
+      {
+        src: '/deboutnef1.jpg',
+        alt: 'Bureau de travail et Maître Manon Fontaine en premier plan, illustrant l\'engagement et la disponibilité de l\'avocate.',
+        spanClass: 'md:col-span-1',
+        heightClass: 'h-72 md:h-[420px]',
+      },
+      {
+        src: '/assisavecmac.jpg',
+        alt: 'Maître Manon Fontaine assise à son bureau, avec son ordinateur.',
+        spanClass: 'md:col-span-1',
+        heightClass: 'h-80 md:h-[440px]',
+      },
+      {
+        src: '/deboutbrascroises.jpg',
+        alt: 'Maître Manon Fontaine debout, bras croisés, dans son bureau, symbolisant la confiance et le professionnalisme.',
+        spanClass: 'md:col-span-1',
+        heightClass: 'h-80 md:h-[440px]',
+      },
+      {
+        src: '/deboutaveclecodecivil.jpg',
+        alt: 'Maître Manon Fontaine debout avec le code civil à la main, symbolisant l’expertise et la rigueur juridique.',
+        spanClass: 'md:col-span-1',
+        heightClass: 'h-80 md:h-[440px]',
+      },
+      {
+        src: '/assiscodecivilouvert.jpg',
+        alt: 'Maître Manon Fontaine assise sur une chaise, avec un code civil ouvert devant elle.',
+        spanClass: 'md:col-span-1',
+        heightClass: 'h-64 md:h-[280px]',
+      },
+      {
+        src: '/assisauburreau.jpg',
+        alt: 'Maître Manon Fontaine assise à son bureau, en train de travailler sur un dossier sur son ordinateur.',
+        spanClass: 'md:col-span-2',
+        heightClass: 'h-64 md:h-[280px]',
+      },
+    ],
+  };
+};

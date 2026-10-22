@@ -10,6 +10,7 @@ import Convention from '@/app/components/Convention'
 import Asavoir from '@/app/components/Asavoir'
 import { getTranslations } from 'next-intl/server';
 import { getHonorairesData } from './data';
+import PhotoGallery from '@/app/components/PhotoGallery';
 
 
 // 1. Un SEO unique pour cette page spécifique
@@ -37,6 +38,7 @@ export default async function HonorairesPage({
             <Facturation />
             <Convention />
             <Aidejuridi />
+            <PhotoGallery />
             <Rdv />
             <Appel />
             <Asavoir />
