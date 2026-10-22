@@ -36,9 +36,9 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
         {
           icon: '/bouclier.svg',
           label: 'Direct Phone',
-          value: '03 21 XX XX XX',
+          value: '03 21 60 50 40',
           subValue: 'Available Mon - Fri',
-          href: 'tel:0321000000',
+          href: 'tel:0321605040',
           actionText: 'Call the office',
         },
         {
@@ -68,7 +68,7 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
         ],
         scheduleTitle: 'Opening Hours',
         scheduleText: [
-          'Monday to Friday: 9:00 AM – 7:00 PM',
+          'Monday to Friday: 9:00 AM – 6:00 PM',
           'Saturday & Sunday: Closed',
         ],
         appointmentNote: 'Consultations are strictly by appointment only.',
@@ -87,9 +87,9 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
         {
           icon: '/bouclier.svg',
           label: 'Telefono',
-          value: '03 21 XX XX XX',
+          value: '03 21 60 50 40',
           subValue: 'Disponibile Lun - Ven',
-          href: 'tel:0321000000',
+          href: 'tel:0321605040',
           actionText: 'Chiama lo studio',
         },
         {
@@ -104,7 +104,7 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
           icon: '/cursors/balance.svg',
           label: 'Studio',
           value: 'Arras (62000)',
-          subValue: 'Ordine degli Avvocati di Arras',
+          subValue: '49 rue Frédéric Degeorge, Arras',
           href: 'https://maps.app.goo.gl/rHTXmDtdpmbbXmRUA',
           actionText: 'Apri su Google Maps',
         },
@@ -119,7 +119,7 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
         ],
         scheduleTitle: 'Orari di Ricevimento',
         scheduleText: [
-          'Dal lunedì al venerdì: 9:00 – 19:00',
+          'Dal lunedì al venerdì: 9:00 – 18:00',
           'Sabato e domenica: Chiuso',
         ],
         appointmentNote: 'Si riceve esclusivamente su appuntamento.',
@@ -138,9 +138,9 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
       {
         icon: '/bouclier.svg',
         label: 'Téléphone',
-        value: '03 21 XX XX XX',
+        value: '03 21 60 50 40',
         subValue: 'Du lundi au vendredi',
-        href: 'tel:0321000000',
+        href: 'tel:0321605040',
         actionText: 'Appeler le cabinet',
       },
       {
@@ -155,7 +155,7 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
         icon: '/cursors/balance.svg',
         label: 'Cabinet',
         value: 'Arras (62000)',
-        subValue: 'Barreau d’Arras',
+        subValue: '49 rue Frédéric Degeorge, Barreau d’Arras',
         href: 'https://maps.app.goo.gl/rHTXmDtdpmbbXmRUA',
         actionText: 'Voir sur Google Maps',
       },
@@ -169,7 +169,7 @@ export const getContactData = (locale: string = 'fr'): ContactPageData => {
       ],
       scheduleTitle: 'Horaires d’accueil',
       scheduleText: [
-        'Du lundi au vendredi : 9h00 – 19h00',
+        'Du lundi au vendredi : 9h00 – 18h00',
         'Samedi et dimanche : Fermé',
       ],
       appointmentNote: 'Les consultations ont lieu exclusivement sur rendez-vous.',
@@ -181,19 +181,19 @@ export const photoContactSrc = (locale: string = 'fr'): { imageSrc: string; imag
   
   if (locale === 'en') {
     return {
-      imageSrc: '/dos.jpg',
+      imageSrc: '/doe.jpg',
       imageAlt: 'Maitre Fontaine, back view, looking towards the judge in the courtroom.',
     };
   }
   if (locale === 'it') {
     return {
-      imageSrc: '/dos.jpg',
+      imageSrc: '/doe.jpg',
       imageAlt: 'Avvocato Fontaine, vista posteriore, che guarda verso il giudice in tribunale.',
     };
   }
   // Version Française par défaut
   return {
-    imageSrc: '/dos.jpg',
+    imageSrc: '/doe.jpg',
     imageAlt: 'Maitre Fontaine, vue de dos, en train de regarder vers le juge du tribunal.',
   };
 }

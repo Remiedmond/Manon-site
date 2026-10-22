@@ -117,11 +117,11 @@ export default function Footer() {
             </div>
             <div className="flex gap-3 items-center">
               <Image src="/telephone.svg" alt="" aria-hidden="true" width={14} height={14} className="h-5 w-5 shrink-0" />
-              <a href="tel:+33123456789" className="text-white/80 text-sm hover:text-white transition-colors duration-200">{t('phone')}</a>
+              <a href={t('phone')} className="text-white/80 text-sm hover:text-white transition-colors duration-200">{t('phone')}</a>
             </div>
             <div className="flex gap-3 items-center">
               <Image src="/mail.svg" alt="" aria-hidden="true" width={16} height={16} className="h-5 w-5 shrink-0" />
-              <a href="mailto:contact@manonfontaine-avocate.fr" className="text-white/80 text-sm hover:text-white transition-colors duration-200 break-all">
+              <a href={t('email')} className="text-white/80 text-sm hover:text-white transition-colors duration-200 break-all">
                 {t('email')}
               </a>
             </div>
