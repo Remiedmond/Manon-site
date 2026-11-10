@@ -1,15 +1,37 @@
-"use client"; 
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image'; 
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import LanguageSwitcher from './LanguageSwitcher';
 import { useTranslations } from 'next-intl';
-import { Link } from '@/i18n/routing';
+import { Link, usePathname } from '@/i18n/routing';
 
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations('Navbar');
+  const pathname = usePathname();
+
+  // Ferme le menu mobile à chaque changement de page
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
+  // Ferme le menu avec la touche Échap
+  useEffect(() => {
+    if (!isOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setIsOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [isOpen]);
+
+  const isActive = (href: string) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
+
+  const mobileLink = (href: string) =>
+    `block px-3 py-2 font-medium rounded-sm ${
+      isActive(href) ? 'text-lawyer-green bg-gray-50' : 'text-slate-600 hover:bg-gray-50'
+    }`;
 
   return (
     <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
@@ -68,9 +90,12 @@ export default function Navbar() {
           <div className="md:hidden gap-1.5 flex items-center">
             <button 
               onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label={isOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
               className="text-slate-600 hover:text-slate-900 focus:outline-none"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 {isOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -84,11 +109,12 @@ export default function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-gray-100 animate-in slide-in-from-top duration-300">
+        <div id="mobile-menu" className="md:hidden bg-white border-b border-gray-100 animate-in slide-in-from-top duration-300">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <Link href="/cabinet" className="block px-3 py-2 text-slate-600 font-medium">{t('cabinet')}</Link>
-            <Link href="/domaines-d-intervention" className="block px-3 py-2 text-slate-600 font-medium">{t('domaines')}</Link>
-            <Link href="/honoraires" className="block px-3 py-2 text-slate-600 font-medium">{t('fees')}</Link>
+            <Link href="/" className={mobileLink('/')}>{t('home')}</Link>
+            <Link href="/cabinet" className={mobileLink('/cabinet')}>{t('cabinet')}</Link>
+            <Link href="/domaines-d-intervention" className={mobileLink('/domaines-d-intervention')}>{t('domaines')}</Link>
+            <Link href="/honoraires" className={mobileLink('/honoraires')}>{t('fees')}</Link>
             <Link href="/contact" className="block px-3 py-2 text-lawyer-green font-bold text-lg">{t('contact')}</Link>
           </div>
         </div>
