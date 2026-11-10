@@ -33,7 +33,7 @@ export default function Navbar() {
               <span className="text-l md:text-xl font-serif font-semibold text-slate-900 tracking-tight">
                 Maître Manon FONTAINE
               </span>
-              <span className="text-xs md:text-s tracking-widest text-lawyer-green max-w-[200px] truncate">
+              <span className="text-xs md:text-s tracking-widest text-lawyer-green max-w-[200px] truncate ">
                 {t('barreau')}
               </span>
             </Link>

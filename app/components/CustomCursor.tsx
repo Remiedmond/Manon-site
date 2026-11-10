@@ -29,14 +29,14 @@ export default function CustomCursor() {
         left: pos.x,
         top: pos.y,
         pointerEvents: 'none',
-        transform: 'translate(-50%, -50%)',
+        transform: 'translate(-12.5%, -6.25%)',
         transition: 'width 0.1s ease, height 0.1s ease',
         zIndex: 9999,
         userSelect: 'none',
       }}
     >
       <Image
-        src={isPointer ? '/cursors/balance.svg' : '/cursors/robe.svg'}
+        src={isPointer ? '/cursors/cursor-avocate.svg' : '/cursors/cursor-avocate.svg'}
         width={isPointer ? 36 : 32}
         height={isPointer ? 36 : 32}
         alt=""
